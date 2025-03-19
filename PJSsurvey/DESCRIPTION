@@ -1,0 +1,19 @@
+Package: PJSsurvey
+Version: 1.00.0
+Date:    2025-03-19
+Title:   Starr Stata Surveys
+Authors@R: c(
+   person("Rowan", "Haigh", role = c("aut", "cre"), email = "rowan.haigh@dfo-mpo.gc.ca"),
+   person(c("Paul", "J."), "Starr", role = "aut", email = "paul@starrfish.net") )
+Author:      Rowan Haigh [aut, cre], Paul J. Starr [aut]
+Maintainer:  Rowan Haigh <rowan.haigh@dfo-mpo.gc.ca>
+Copyright:   2019-2025, Paul J. Starr
+Depends:     R (>= 3.5.0), PBStools
+Imports:     graphics, grDevices, methods, stats, utils
+#Suggests:    boot, BRugs, cluster, MASS, reshape, sp, xtable
+Description: An attempt to convert 'STATA' functions created by 'PJS'
+   to R functions. Largely lost in translation, the collection offers
+   a glimpse into the 'Starr' galaxy of red dwarfs and black holes.
+License: GPL (>= 2)
+URL: https://github.com/pbs-software/pjs-survey
+

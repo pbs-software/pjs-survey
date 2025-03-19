@@ -1,0 +1,126 @@
+PBSsurvey Changes
+==============================
+Authors: RH  = Rowan Haigh
+         PJS = Paul J. Starr
+------------------------------
+
+1.00.0 (2025-03-18)  [Rcheck=T, Rbuild=T]
+  * R code
+    + Transferred all PJS functions from PBStools 1.43.7 (RH 250318)
+
+[01 Oct 2019]: RH renaming functions to align with PBS software convention: verbNoun
+[23 Aug 2019]: RH converting PJS STATA code to R
+
+STATA notes from PJS:
+====================
+[29 Nov 2018]:
+	+ add water haul identification to the preparation of the Triennial survey data
+[29 Nov 2016]:
+	+ fix bug with log files: add 'cap log close' before every invocation of a log file
+[21 Nov 2016]:
+	+ change default doorspread for the two shrimp surveys to 29.6 m
+[28 Aug 2016]:
+	+ add trap to processing WCVI shrimp survey to catch situations when the depth fields for trip=67647  haven't been properly updated
+	+ change logic on 'attendflag', 'useflag', and 'savefile': all optionally off now
+	+ generalise the collapse for multiple observations per tow to include the shrimp surveys
+[03 & 05 Sep 2015]:
+	+ add code to <getlabels> subroutine which replaces -1 with '.' (missing).  
+	+ needed to add -1 to the ACCESS output files due to limitations in converting from the decimal' numeric type in queries
+	+ also change the default <datemask> option to "dmy" to conform to export specifications in ACCESS
+	+ add code to force dropping of 2014 WCHG survey data (survey not completed and too deficient to use)
+	+ add option to allow dropping of pre-2003 shrimp survey data (convention adopted in GF Section)
+[28 Oct 2013]: 
+	+ add code to check for and process situations where there is more than one record per tow
+	+ drop hardwired rescaling of 2010 WCVI synoptic distance-travelled field (no longer needed)
+[20 Oct 2013]:
+	+ NOTE TO PJS: consider switching doorspread replacement to use ONLY tows that are valid
+	+ (ie: use==1|use==2|use==6, etc....)
+	+ also add ARCTIC OCEAN to the vessel list
+[22 Aug 2013]:
+	+ add 'depstrat' variable to QCSoundSynoptic survey//hardwire call to $stratumlabelfile 
+[17&18 Aug 2013]:
+	+ add Nordic Pearl to vessel list//identify strata to drop in the NMFS Triennial survey
+	+ (instead of within gfsurvey.ado) with 'missing' (consistent with the Canadian surveys)
+[16 Nov 2012]:
+	+ fix bug in getlabelends subroutine (needed to shave off front end of QCSndSyn labels)
+	+ also some residual bugs in the two shrimp survey routines in calling the getlabels subroutine (did not save $stratumlabelfile for these two surveys)
+[10 Sep 2012]:
+	+ change to a `defaultdoorspread' option instead of 61.6 from Yamanaka et al. 1996
+[08 Sep 2012]:
+	+ added code to tidy up analysis of historical WCQCI surveys
+[29 Aug/01 Sep 2012]: 
+	+ add historical WCQCI trips (survey_code=15) & 1997 Ocean Selector (survey_code=16)
+	+ add restratification subroutine and apply to 2006 WCQCI synoptic survey (as well as surveys 15 & 16)
+	+ also changed logic for stratum label file: now a temporary file that doesn't need erasing
+[05 Aug 2012]: 
+	+ add GBReed_historic (emphasis on WCVI surveys) (survey_code=14)
+[24-30 July 2012]:
+	+ add mask option to code (need to deal with change to "ymd" from "dmy")
+	+ add Caledonian 1996 survey to code (survey code=13)
+	+ add traps to find out-of-range depth and distance information for synoptic surveys only
+[02 Apr 2011]:
+	+ add line of code to exclude 19 target strength acoustic tows in Ocean Selector 1994 GIG survey (survey codes 8 & 11);
+	+ seems that it doesn't matter which code we use to prepare this survey (get the same result as long as stratum==1)
+[17 Jan 2011]:
+	+ add compulsory log file 
+[14 Dec 2010]:
+	+ add generic GIG stratum code to survey==11//this is now the survey code to use when analysing this survey series
+[19 July 2010]:
+	+ minor bug fixes (none serious)
+[12 Dec 2009]:
+	+ 3. survey #8 is now the full GIG retrospective (=survey_series 32);
+	  - this is for the 464 tows identified by moi between latitudes 50.9 and 51.6;
+	  - it includes the 1967 to 1984 GB Reed surveys, plus the 1984 Eastward Ho, the 1994 & 1995 Ocean Selector and the 1995 Frosti;
+	  - this survey will use the Norm Olsen grouping codes
+	+ 4. survey #11 will remain the full series (1601 tows for survey_series 21);
+	  - includes all tows from 1965 to 2005, going from the GB Reed to the Viking Storm;
+	  - this will also include Mitchell Gully tows, the discarded Southward Ho 1979 survey, and the same surveys as #8;
+	  - the difference is that I will create my own stratification for these surveys
+	+ 5. added survey #12 to accommodate survey_series_ID=33;
+	  - this is only for the two 1995 Ocean Selector and Frosti surveys so that they can use the same grouping codes as the QC Sound synoptic survey (survey#2 in this software)
+	+ 6. decided that I will reserve all remaining codes from #13 to #19 to WC GF surveys;
+	  - any additional surveys from other areas that will use this software will be given codes beginning at #20
+[26 Nov 2009]
+	+ 1. reserve a survey code for the hecate st synoptic survey which I will start using next year
+	+ 2. add option to GB Reed prep to process other vessels (GIG retrospective) (updated 02 Dec 2009) 
+[05 Sep 2009]
+	+ modify getweight subroutine so I can find records where there is a valid species code but no data
+[18-20 Dec 2008]
+	+ changed the approach to data prep to conform to what Norm Olsen is doing, based on a phone call this AM;
+	+ for calculating distance travelled for a survey tow, he uses the following order of calculation:
+		- #1: use FE_distance_travelled as default (Norm says that he and Kate have groomed the data to ensure this was reliable and based on vessel tracks)
+		- #2: use bottom_contact*speed
+		- #3: use winch_time*speed
+	+ Norm also uses default speed and doorspreads that are year and survey specific (not stratum specific as I do)
+[10 & 18 Nov 2008]
+	+ add west coast QCI synoptic survey to this program (survey==9)
+[09 Nov 2008]
+	+ added code to check for missing weight data when there are numbers caught (and sub with mean weight by year)
+	+ note: this option has been disabled at the suggestion of Norm Olsen (see getweight subroutine)
+[02 Nov 2008]
+	+ hardwired time series so that only GB Reed survey trips are included in the gfsurvey file
+[31 Oct 2008]
+	+ consolidated some code and updated program to fit revised GFBioCatEff.mdb; also fixed exit codes
+[08 July 2008]
+	+ minor fixes to the triennial survey code (re lats and longs)
+[08 Nov 2007]
+	+ add depint variable to GB Reed surveys
+[31 Aug 2007]
+	+ add historical GB Reed surveys
+[09 Aug 2007]
+	+ add capacity to process dates
+/* [06 August 2007]
+	+ generic program to prepare survey data: all in one complex file
+	+ use an integer code to designate the survey:
+		1: old Hecate St Survey (note: this program does not prepare the recruited biomass estimate as done for ENL in 2006)
+		2: QC Sound Synoptic
+		3: WCVI Synoptic
+		4: WCVI Shrimp
+		5: Triennial
+		6: Pcod Monitoring
+		7: QCSound Shrimp
+		8: historical GB Reed survey (now includes 1984 Eastward Ho and 1990s Ocean Selector and Frosti - use this for biomass ests)
+		9: WCQCI Synoptic (added Nov 2008)
+		10: Hecate St synoptic survey (added July 2010)
+		11: retrospective GIG (includes GB Reed and misc GIG surveys) (added Nov 2009 - not for biomass)
+		12: retrospective GIG (1995 Ocean Selector and Frosti only - QC Snd synoptic stratification) (added Dec 2009)

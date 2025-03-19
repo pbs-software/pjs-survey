@@ -1,0 +1,31 @@
+# Export all names from PJSsurvey
+exportPattern("^[^\\.]")
+
+# Export dot objects
+exportPattern("^\\.PJS")
+#exportPattern("^\\.choose")
+#exportPattern("^\\.flush")
+#exportPattern("^\\.get")
+#exportPattern("^\\.grab")
+#exportPattern("^\\.impute")
+#exportPattern("^\\.plot")
+#exportPattern("^\\.prefer")
+#exportPattern("^\\.report")
+#exportPattern("^\\.run")
+#exportPattern("^\\.set")
+#exportPattern("^\\.ss3")
+#exportPattern("^\\.trend")
+#exportPattern("^\\.win")
+
+# Packages declared in the 'Depends' field should not also be in the 'Imports' field (I guess in DESCRIPTION file only) (from R-exts.pdf).
+import(
+  PBStools
+)
+
+# writeLines(imports_for_undefined_globals(txt))
+importFrom("grDevices", "dev.off", "extendrange")
+importFrom("graphics", "axis", "lines", "par", "points", "text")
+importFrom("methods", "as")
+importFrom("stats", "coefficients", "lm", "sd")
+importFrom("utils", "data", "read.csv", "write.csv")
+
