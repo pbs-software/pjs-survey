@@ -1,6 +1,5 @@
 \name{calcBiom}
 \alias{calcBiom}
-\alias{calcHBLL}
 \title{
   PJS -- Calculate Swept-Area Biomass Estimates
 }
@@ -11,8 +10,6 @@
 calcBiom(dat, reps=0, seed=42, meth=1, fix125flag, 
    xvar="year", areavar="area", stratumvar="stratum", towvar="set",
    postfilename)
-
-calcHBLL(dat, ssid, reps=0, seed=42, meth=1, xvar="year")
 }
 \arguments{
   \item{dat}{\code{data.frame} -- output from function \code{prepGFsurv}}
@@ -27,8 +24,6 @@ calcHBLL(dat, ssid, reps=0, seed=42, meth=1, xvar="year")
   \item{stratumvar}{\code{character} --  field name of stratum variables (usually \code{"stratum"})}
   \item{towvar}{\code{character} --  field name of tow variables (usually \code{"set"})}
   \item{postfilename}{\code{character} -- currently does not get used}
-  \item{ssid}{\code{numeric} -- survey series identification number 
-    (e.g., 22=HBLL North outside, 36=HBLL South outside)}
 }
 \value{
   A list object containing:
@@ -49,7 +44,7 @@ calcHBLL(dat, ssid, reps=0, seed=42, meth=1, xvar="year")
   \href{mailto:rowan.haigh@dfo-mpo.gc.ca}{Rowan Haigh}, Program Head -- Offshore Rockfish\cr
   Pacific Biological Station (PBS), Fisheries & Oceans Canada (DFO), Nanaimo BC\cr
   \emph{locus opus}: Remote office, Vancouver BC\cr
-  Last modified \code{Rd: 2025-03-19}
+  Last modified \code{Rd: 2025-03-20}
 }
 \note{
   PJS maintains code in statistical software called \href{https://www.stata.com/}{STATA}.

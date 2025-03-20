@@ -68,7 +68,7 @@ prepWCVIsyn(file, survey="WCVIsyn")
   \href{mailto:rowan.haigh@dfo-mpo.gc.ca}{Rowan Haigh}, Program Head -- Offshore Rockfish\cr
   Pacific Biological Station (PBS), Fisheries & Oceans Canada (DFO), Nanaimo BC\cr
   \emph{locus opus}: Remote office, Vancouver BC\cr
-  Last modified \code{Rd: 2023-02-10}
+  Last modified \code{Rd: 2025-03-20}
 }
 \note{
   PJS maintains code in statistical software called \href{https://www.stata.com/}{STATA}.
@@ -76,14 +76,14 @@ prepWCVIsyn(file, survey="WCVIsyn")
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-In package \pkg{PBStools}:\cr
-  \code{\link[PBStools]{calcBiom}},
-  \code{\link[PBStools]{doSynoptic}},
-  \code{\link[PBStools]{getLabels}},
-  \code{\link[PBStools]{keepAtts}},
-  \code{\link[PBStools]{plotIndex}},
-  \code{\link[PBStools]{restratify}},
-  \code{\link[PBStools]{uniqtows}}
+In package \pkg{PJSsurvey}:\cr
+  \code{\link[PJSsurvey]{calcBiom}},
+  \code{\link[PJSsurvey]{doSynoptic}},
+  \code{\link[PJSsurvey]{getLabels}},
+  \code{\link[PJSsurvey]{keepAtts}},
+  \code{\link[PJSsurvey]{plotIndex}},
+  \code{\link[PJSsurvey]{restratify}},
+  \code{\link[PJSsurvey]{uniqtows}}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):

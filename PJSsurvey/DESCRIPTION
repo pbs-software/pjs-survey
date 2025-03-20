@@ -1,6 +1,6 @@
 Package: PJSsurvey
-Version: 1.00.0
-Date:    2025-03-19
+Version: 1.00.1
+Date:    2025-03-20
 Title:   Starr Stata Surveys
 Authors@R: c(
    person("Rowan", "Haigh", role = c("aut", "cre"), email = "rowan.haigh@dfo-mpo.gc.ca"),
